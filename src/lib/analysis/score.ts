@@ -31,6 +31,7 @@ export function analyze(job: string, resume: string): AnalysisResult {
   const inResume = new Set(extractIds(resume));
   const keywords: KeywordResult[] = Array.from(levels.entries()).map(([id, level]) => {
     const c = DICTIONARY_BY_ID[id];
+    if (!c) throw new Error(`Competência desconhecida: ${id}`);
     return {
       id,
       canonical: c.canonical,
