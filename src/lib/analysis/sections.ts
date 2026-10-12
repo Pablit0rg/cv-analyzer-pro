@@ -30,11 +30,12 @@ export function splitSections(job: string): { level: Level; text: string }[] {
     // "Desejável: Docker e AWS" — heading with inline content
     const inline = trimmed.match(/^([^:]{1,40}):(.*)$/);
     if (inline) {
-      const lvl = classify(inline[1]);
+      const lvl = classify(inline[1] ?? "");
       if (lvl) {
         flush();
         current = lvl;
-        if (inline[2].trim()) buf.push(inline[2]);
+        const rest = inline[2] ?? "";
+        if (rest.trim()) buf.push(rest);
         continue;
       }
     }

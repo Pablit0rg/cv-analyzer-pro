@@ -186,6 +186,13 @@ export const DICTIONARY: Competency[] = [
   ...build(comportamentais, "comportamental"),
 ];
 
-export const DICTIONARY_BY_ID: Record<string, Competency> = Object.fromEntries(
-  DICTIONARY.map((c) => [c.id, c]),
-);
+const BY_ID = new Map(DICTIONARY.map((c) => [c.id, c]));
+
+/** Lookup for ids produced by the matcher (always present in the dictionary). */
+export const DICTIONARY_BY_ID = new Proxy({} as { [id: string]: Competency }, {
+  get: (_t, id: string) => {
+    const c = BY_ID.get(id);
+    if (!c) throw new Error(`Unknown competency id: ${id}`);
+    return c;
+  },
+});
