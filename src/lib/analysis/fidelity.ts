@@ -6,5 +6,9 @@ export function checkFidelity(original: string, adjusted: string): string[] {
   const orig = new Set(extractIds(original));
   return extractIds(adjusted)
     .filter((id) => !orig.has(id))
-    .map((id) => DICTIONARY_BY_ID[id].canonical);
+    .map((id) => {
+      const c = DICTIONARY_BY_ID[id];
+      if (!c) throw new Error(`Competência desconhecida: ${id}`);
+      return c.canonical;
+    });
 }

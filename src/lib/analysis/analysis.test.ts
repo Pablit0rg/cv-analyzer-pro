@@ -2,7 +2,12 @@ import { describe, expect, it } from "vitest";
 import { analyze, checkFidelity, extractIds, EXAMPLE_JOB, EXAMPLE_RESUME } from "./index";
 import { DICTIONARY_BY_ID } from "./dictionary";
 
-const names = (text: string) => extractIds(text).map((id) => DICTIONARY_BY_ID[id].canonical);
+const names = (text: string) =>
+  extractIds(text).map((id) => {
+    const c = DICTIONARY_BY_ID[id];
+    if (!c) throw new Error(`Competência desconhecida: ${id}`);
+    return c.canonical;
+  });
 
 describe("análise determinística", () => {
   it("mesma entrada gera sempre o mesmo resultado", () => {
