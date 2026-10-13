@@ -11,6 +11,7 @@ const LEVEL_LABEL: Record<Level, string> = {
 const TYPE_LABEL: Record<KeywordResult["type"], string> = {
   tecnica: "técnica",
   comportamental: "comportamental",
+  idioma: "idioma",
 };
 
 function KeywordBadge({ keyword }: { keyword: KeywordResult }) {

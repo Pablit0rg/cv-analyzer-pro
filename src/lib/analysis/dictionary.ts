@@ -1,4 +1,4 @@
-export type CompetencyType = "tecnica" | "comportamental";
+export type CompetencyType = "tecnica" | "comportamental" | "idioma";
 
 export interface Competency {
   id: string;
@@ -69,10 +69,9 @@ const tecnicas: Row[] = [
   ["JSON", ["json"], "Pratique leitura e escrita de JSON consumindo uma API pública."],
   ["Microsserviços", ["microsservicos", "microservicos", "microservices", "microsservico"], "Divida um projeto pequeno em dois serviços que conversam por HTTP."],
   ["Mensageria", ["mensageria", "rabbitmq", "kafka", "fila de mensagens"], "Faça um exemplo com RabbitMQ enviando e consumindo mensagens."],
-  ["Git", ["git"], "Pratique branches, merge e resolução de conflitos em um repositório seu."],
+  ["Git", ["git", "versionamento", "versionamento de codigo", "controle de versao"], "Pratique branches, merge e resolução de conflitos em um repositório seu."],
   ["GitHub", ["github"], "Publique seus projetos no GitHub com README explicando como rodar."],
   ["GitLab", ["gitlab"], "Hospede um projeto no GitLab e configure um pipeline simples."],
-  ["Versionamento de código", ["versionamento", "controle de versao", "versionamento de codigo"], "Mantenha um projeto com commits pequenos e mensagens claras."],
   ["CI/CD", ["ci/cd", "integracao continua", "entrega continua", "deploy continuo", "ci cd"], "Configure um pipeline no GitHub Actions que rode os testes a cada push."],
   ["GitHub Actions", ["github actions"], "Crie um workflow do GitHub Actions que faça lint e testes."],
   ["Jenkins", ["jenkins"], "Rode o Jenkins localmente e crie um job que execute os testes de um projeto."],
@@ -130,7 +129,6 @@ const tecnicas: Row[] = [
   ["Pandas", ["pandas"], "Explore uma base de dados pública com Pandas em um notebook."],
   ["Machine Learning", ["machine learning", "aprendizado de maquina"], "Faça um curso introdutório de Machine Learning e treine um modelo simples."],
   ["Jira", ["jira"], "Organize um projeto pessoal em um quadro no Jira."],
-  ["Inglês", ["ingles", "english"], "Pratique leitura de documentação técnica em inglês e faça conversação semanal."],
   ["Espanhol", ["espanhol", "spanish"], "Pratique espanhol com aplicativos e conteúdos da área de tecnologia."],
   ["Scrum", ["scrum", "sprint", "sprints"], "Estude o Guia do Scrum e organize um projeto pessoal em sprints."],
   ["Kanban", ["kanban"], "Gerencie suas tarefas de estudo em um quadro Kanban."],
@@ -181,9 +179,14 @@ function build(rows: Row[], type: CompetencyType): Competency[] {
   }));
 }
 
+const idiomas: Row[] = [
+  ["Inglês", ["ingles", "english"], "Pratique leitura de documentação técnica em inglês e faça conversação semanal."],
+];
+
 export const DICTIONARY: Competency[] = [
   ...build(tecnicas, "tecnica"),
   ...build(comportamentais, "comportamental"),
+  ...build(idiomas, "idioma"),
 ];
 
 const BY_ID = new Map(DICTIONARY.map((c) => [c.id, c]));
