@@ -85,7 +85,8 @@ export function MatchTab({ result }: { result: AnalysisResult }) {
         <Progress value={result.match} aria-label={`Match de ${result.match} por cento`} />
       </div>
       <LevelGroup level="obrigatoria" keywords={result.keywords} />
-      <LevelGroup level="desejavel" keywords={result.keywords} />
-    </div>
+        <LevelGroup level="desejavel" keywords={result.keywords} />
+      </div>
+    </TooltipProvider>
   );
 }
