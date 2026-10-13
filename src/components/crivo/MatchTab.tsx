@@ -1,7 +1,7 @@
 import type { AnalysisResult, KeywordResult, Level } from "@/lib/analysis";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const LEVEL_LABEL: Record<Level, string> = {
   obrigatoria: "Obrigatórias",
@@ -75,7 +75,8 @@ export function MatchTab({ result }: { result: AnalysisResult }) {
     );
   }
   return (
-    <div className="space-y-6">
+    <TooltipProvider>
+      <div className="space-y-6">
       <div className="space-y-2">
         <div className="flex items-baseline gap-2">
           <span className="font-mono text-4xl font-semibold">{result.match}%</span>
