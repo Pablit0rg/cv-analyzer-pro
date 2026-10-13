@@ -86,4 +86,20 @@ describe("análise determinística", () => {
     expect(missing.some((k) => k.level === "obrigatoria")).toBe(true);
     expect(missing.some((k) => k.level === "desejavel")).toBe(true);
   });
+
+  it("Git e versionamento são uma competência só", () => {
+    expect(names("Git para versionamento")).toEqual(["Git"]);
+    expect(names("controle de versão")).toEqual(["Git"]);
+    expect(names("versionamento de código")).toEqual(["Git"]);
+  });
+
+  it("exemplo tem 13 obrigatórias", () => {
+    const r = analyze(EXAMPLE_JOB, EXAMPLE_RESUME);
+    expect(r.keywords.filter((k) => k.level === "obrigatoria")).toHaveLength(13);
+  });
+
+  it("Inglês é idioma", () => {
+    const r = analyze("Inglês", "");
+    expect(r.keywords[0]?.type).toBe("idioma");
+  });
 });
