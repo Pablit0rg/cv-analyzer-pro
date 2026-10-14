@@ -102,4 +102,11 @@ describe("análise determinística", () => {
     const r = analyze("Inglês", "");
     expect(r.keywords[0]?.type).toBe("idioma");
   });
+  it("Espanhol é idioma", () => {
+    expect(analyze("Espanhol", "").keywords[0]?.type).toBe("idioma");
+  });
+
+  it("Português é idioma", () => {
+    expect(analyze("Português", "").keywords[0]?.type).toBe("idioma");
+  });
 });

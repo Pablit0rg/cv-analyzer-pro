@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep each analysis-result tab in a focused component under components/crivo, receiving existing analysis data when needed; this preserves the deterministic calculation and separates presentation from analysis.

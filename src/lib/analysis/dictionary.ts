@@ -129,7 +129,6 @@ const tecnicas: Row[] = [
   ["Pandas", ["pandas"], "Explore uma base de dados pública com Pandas em um notebook."],
   ["Machine Learning", ["machine learning", "aprendizado de maquina"], "Faça um curso introdutório de Machine Learning e treine um modelo simples."],
   ["Jira", ["jira"], "Organize um projeto pessoal em um quadro no Jira."],
-  ["Espanhol", ["espanhol", "spanish"], "Pratique espanhol com aplicativos e conteúdos da área de tecnologia."],
   ["Scrum", ["scrum", "sprint", "sprints"], "Estude o Guia do Scrum e organize um projeto pessoal em sprints."],
   ["Kanban", ["kanban"], "Gerencie suas tarefas de estudo em um quadro Kanban."],
   ["Metodologias ágeis", ["metodologias ageis", "metodologia agil", "agil", "agile", "metodos ageis"], "Estude o Manifesto Ágil e participe de um projeto em equipe usando práticas ágeis."],
@@ -181,6 +180,8 @@ function build(rows: Row[], type: CompetencyType): Competency[] {
 
 const idiomas: Row[] = [
   ["Inglês", ["ingles", "english"], "Pratique leitura de documentação técnica em inglês e faça conversação semanal."],
+  ["Espanhol", ["espanhol", "spanish"], "Pratique espanhol com aplicativos e conteúdos da área de tecnologia."],
+  ["Português", ["portugues", "portuguese"], "Pratique escrita e interpretação de textos em português e revise a clareza dos seus textos profissionais."],
 ];
 
 export const DICTIONARY: Competency[] = [

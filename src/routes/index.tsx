@@ -5,6 +5,8 @@ import { analyze, EXAMPLE_JOB, EXAMPLE_RESUME, type AnalysisResult } from "@/lib
 import { Header } from "@/components/crivo/Header";
 import { InputPanel, JOB_LIMIT, RESUME_LIMIT } from "@/components/crivo/InputPanel";
 import { MatchTab } from "@/components/crivo/MatchTab";
+import { GapsTab } from "@/components/crivo/GapsTab";
+import { AdjustedResumeTab } from "@/components/crivo/AdjustedResumeTab";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -95,9 +97,17 @@ function Index() {
           <Tabs defaultValue="match">
             <TabsList>
               <TabsTrigger value="match">Match</TabsTrigger>
+              <TabsTrigger value="gaps">Lacunas</TabsTrigger>
+              <TabsTrigger value="adjusted">Currículo ajustado</TabsTrigger>
             </TabsList>
             <TabsContent value="match" className="pt-4">
               <MatchTab result={result} />
+            </TabsContent>
+            <TabsContent value="gaps" className="pt-4">
+              <GapsTab result={result} />
+            </TabsContent>
+            <TabsContent value="adjusted" className="pt-4">
+              <AdjustedResumeTab />
             </TabsContent>
           </Tabs>
         )}
