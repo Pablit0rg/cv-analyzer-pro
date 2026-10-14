@@ -93,9 +93,9 @@ describe("análise determinística", () => {
     expect(names("versionamento de código")).toEqual(["Git"]);
   });
 
-  it("exemplo tem 13 obrigatórias", () => {
+  it("exemplo tem 12 obrigatórias (sem Comprometimento falso)", () => {
     const r = analyze(EXAMPLE_JOB, EXAMPLE_RESUME);
-    expect(r.keywords.filter((k) => k.level === "obrigatoria")).toHaveLength(13);
+    expect(r.keywords.filter((k) => k.level === "obrigatoria")).toHaveLength(12);
   });
 
   it("Inglês é idioma", () => {
