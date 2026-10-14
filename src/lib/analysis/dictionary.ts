@@ -135,7 +135,7 @@ const tecnicas: Row[] = [
 ];
 
 const comportamentais: Row[] = [
-  ["Trabalho em equipe", ["trabalho em equipe", "colaboracao", "colaborativo", "colaborativa", "teamwork", "espirito de equipe"], "Participe de um projeto open source ou de um hackathon para trabalhar com outras pessoas."],
+  ["Trabalho em equipe", ["trabalho em equipe", "trabalhei em equipe", "trabalhando em equipe", "trabalhar em equipe", "trabalhamos em equipe", "trabalhou em equipe", "colaboracao", "colaborativo", "colaborativa", "teamwork", "espirito de equipe"], "Participe de um projeto open source ou de um hackathon para trabalhar com outras pessoas."],
   ["Comunicação", ["comunicacao", "boa comunicacao", "comunicativo", "comunicativa"], "Apresente seus projetos em meetups ou escreva posts explicando o que você construiu."],
   ["Proatividade", ["proatividade", "proativo", "proativa"], "Proponha e execute melhorias em projetos dos quais você participa."],
   ["Resolução de problemas", ["resolucao de problemas", "solucao de problemas", "problem solving", "resolver problemas"], "Resolva desafios de programação com regularidade e documente seu raciocínio."],
@@ -150,7 +150,7 @@ const comportamentais: Row[] = [
   ["Empatia", ["empatia", "empatico", "empatica"], "Faça mentoria voluntária para quem está começando."],
   ["Criatividade", ["criatividade", "criativo", "criativa"], "Crie projetos próprios a partir de problemas reais que você observa."],
   ["Atenção aos detalhes", ["atencao aos detalhes", "detalhista"], "Revise seus próprios pull requests com uma lista de verificação antes de enviar."],
-  ["Comprometimento", ["comprometimento", "comprometido", "comprometida", "responsabilidade"], "Cumpra entregas de projetos voluntários ou open source com prazo combinado."],
+  ["Comprometimento", ["comprometimento", "comprometido", "comprometida"], "Cumpra entregas de projetos voluntários ou open source com prazo combinado."],
   ["Inteligência emocional", ["inteligencia emocional"], "Pratique receber e dar feedback em revisões de código."],
   ["Receptividade a feedback", ["feedback", "receber feedback", "aberto a feedback"], "Peça revisão de código em comunidades e aplique as sugestões."],
   ["Negociação", ["negociacao"], "Pratique alinhar escopo e prazos em projetos em grupo."],

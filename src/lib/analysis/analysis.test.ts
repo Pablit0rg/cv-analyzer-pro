@@ -93,9 +93,9 @@ describe("análise determinística", () => {
     expect(names("versionamento de código")).toEqual(["Git"]);
   });
 
-  it("exemplo tem 13 obrigatórias", () => {
+  it("exemplo tem 12 obrigatórias (sem Comprometimento falso)", () => {
     const r = analyze(EXAMPLE_JOB, EXAMPLE_RESUME);
-    expect(r.keywords.filter((k) => k.level === "obrigatoria")).toHaveLength(13);
+    expect(r.keywords.filter((k) => k.level === "obrigatoria")).toHaveLength(12);
   });
 
   it("Inglês é idioma", () => {
@@ -108,5 +108,17 @@ describe("análise determinística", () => {
 
   it("Português é idioma", () => {
     expect(analyze("Português", "").keywords[0]?.type).toBe("idioma");
+  });
+
+  it("variações do verbo contam como Trabalho em equipe", () => {
+    for (const t of ["trabalhei em equipe", "trabalhando em equipe", "trabalhar em equipe"]) {
+      expect(names(t)).toEqual(["Trabalho em equipe"]);
+    }
+  });
+
+  it("título Responsabilidades não gera Comprometimento", () => {
+    const r = analyze(EXAMPLE_JOB, EXAMPLE_RESUME);
+    expect(r.keywords.some((k) => k.canonical === "Comprometimento")).toBe(false);
+    expect(names("Responsabilidades")).toEqual([]);
   });
 });
