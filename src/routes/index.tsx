@@ -74,8 +74,8 @@ function Index() {
           <ShieldCheck className="size-4" aria-hidden />
           <AlertTitle>Privacidade</AlertTitle>
           <AlertDescription>
-            A análise acontece inteiramente no seu navegador. Nenhum texto é enviado, salvo ou
-            registrado.
+            A análise de match acontece no seu navegador. Só a reescrita (botão Gerar versão ATS)
+            envia o texto a um modelo de IA. O Crivo não salva nada.
           </AlertDescription>
         </Alert>
 
