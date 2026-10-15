@@ -107,7 +107,7 @@ function Index() {
               <GapsTab result={result} />
             </TabsContent>
             <TabsContent value="adjusted" className="pt-4">
-              <AdjustedResumeTab />
+              <AdjustedResumeTab job={job} resume={resume} result={result} />
             </TabsContent>
           </Tabs>
         )}
