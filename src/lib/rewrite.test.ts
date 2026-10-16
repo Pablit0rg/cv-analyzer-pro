@@ -9,18 +9,20 @@ import { INVALID_MESSAGE, parseRewrite } from "./rewrite.schema";
 vi.mock("@tanstack/react-start", () => ({
   createServerFn: () => {
     let validate: ((input: unknown) => unknown) | undefined;
+    const setValidator = <T>(fn: (input: unknown) => T) => {
+      validate = fn;
+      return {
+        handler: <R>(handlerFn: (ctx: { data: T }) => Promise<R>) => {
+          return async (opts: { data: unknown }): Promise<R> => {
+            const parsed = validate ? (validate(opts.data) as T) : (opts.data as T);
+            return handlerFn({ data: parsed });
+          };
+        },
+      };
+    };
     return {
-      inputValidator: <T>(fn: (input: unknown) => T) => {
-        validate = fn;
-        return {
-          handler: <R>(handlerFn: (ctx: { data: T }) => Promise<R>) => {
-            return async (opts: { data: unknown }): Promise<R> => {
-              const parsed = validate ? (validate(opts.data) as T) : (opts.data as T);
-              return handlerFn({ data: parsed });
-            };
-          },
-        };
-      },
+      validator: setValidator,
+      inputValidator: setValidator,
     };
   },
   useServerFn: <T>(fn: T): T => fn,

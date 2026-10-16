@@ -6,6 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import type { AnalysisResult } from "@/lib/analysis";
 import { newTechnicalTerms } from "@/lib/analysis/fidelity-terms";
+import { ATS_PDF_FILENAME, buildAtsPdf } from "@/lib/pdf";
 import { rewriteResume } from "@/lib/rewrite.functions";
 import type { Rewrite } from "@/lib/rewrite.schema";
 
@@ -43,13 +44,21 @@ export function AdjustedResumeTab({ job, resume }: Props) {
   };
 
   const plainText = data
-    ? data.secoes.map((s) => [s.titulo.toUpperCase(), ...s.itens.map((i) => `- ${i}`)].join("\n")).join("\n\n")
+    ? data.secoes
+        .map((s) => [s.titulo.toUpperCase(), ...s.itens.map((i) => `- ${i}`)].join("\n"))
+        .join("\n\n")
     : "";
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(plainText);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleExportPdf = () => {
+    if (!data) return;
+    const doc = buildAtsPdf(data.secoes);
+    doc.save(ATS_PDF_FILENAME);
   };
 
   return (
@@ -59,9 +68,14 @@ export function AdjustedResumeTab({ job, resume }: Props) {
           {loading ? "Gerando..." : "Gerar versão ATS"}
         </Button>
         {data && (
-          <Button variant="outline" onClick={handleCopy}>
-            {copied ? "Copiado" : "Copiar texto"}
-          </Button>
+          <>
+            <Button variant="outline" onClick={handleExportPdf}>
+              Exportar PDF
+            </Button>
+            <Button variant="outline" onClick={handleCopy}>
+              {copied ? "Copiado" : "Copiar texto"}
+            </Button>
+          </>
         )}
       </div>
 

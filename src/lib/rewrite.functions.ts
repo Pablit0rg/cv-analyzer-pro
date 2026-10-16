@@ -43,7 +43,7 @@ const jsonSchema = {
 };
 
 export const rewriteResume = createServerFn({ method: "POST" })
-  .inputValidator((d: unknown) => InputSchema.parse(d))
+  .validator((d: unknown) => InputSchema.parse(d))
   .handler(async ({ data }): Promise<RewriteResult> => {
     const apiKey = process.env["LOVABLE_API_KEY"];
     if (!apiKey) return { ok: false, reason: "error", message: GENERIC_MESSAGE };

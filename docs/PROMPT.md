@@ -18,7 +18,7 @@ Na reescrita do exemplo, a IA escreveu "Tecnólogo em Análise e Desenvolvimento
 
 ## Diferenças entre o prompt e a versão publicada
 
-- A exportação em PDF (seção 7 e critério 8 do prompt) não foi implementada. A versão publicada oferece "Copiar texto".
+- A exportação em PDF (seção 7 e critério 8 do prompt) foi implementada em 16/10/2026, ao lado de "Copiar texto".
 - O tema visual seguiu o padrão do Lovable, não a paleta proposta na seção 3.
 
 ---
