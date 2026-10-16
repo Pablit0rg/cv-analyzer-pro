@@ -12,10 +12,10 @@ import type { Rewrite } from "@/lib/rewrite.schema";
 interface Props {
   job: string;
   resume: string;
-  result: AnalysisResult;
+  result?: AnalysisResult;
 }
 
-export function AdjustedResumeTab({ job, resume, result }: Props) {
+export function AdjustedResumeTab({ job, resume }: Props) {
   const generate = useServerFn(rewriteResume);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Rewrite | null>(null);
@@ -31,8 +31,6 @@ export function AdjustedResumeTab({ job, resume, result }: Props) {
         data: {
           job,
           resume,
-          found: result.keywords.filter((k) => k.found).map((k) => k.canonical),
-          missing: result.keywords.filter((k) => !k.found).map((k) => k.canonical),
         },
       });
       if (r.ok) setData(r.data);
